@@ -7,7 +7,7 @@ docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD"
 
 IMAGE_NAME="myreactimg"
 IMAGE_TAG="latest"
-if [[ CURRENT_BRANCH=$(git rev-parse --abbrev-ref master) ]]; then
+if [[ CURRENT_BRANCH=$(git rev-parse --abbrev-ref dev) ]]; then
   echo "Current branch: $CURRENT_BRANCH" 
   ./build.sh
   docker tag "$IMAGE_NAME:$IMAGE_TAG" "$DOCKERHUB_USERNAME/$DEV_REPO:$IMAGE_TAG"
